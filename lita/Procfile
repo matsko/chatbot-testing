@@ -1,0 +1,2 @@
+redis: bundle exec redis-server
+web: lita
