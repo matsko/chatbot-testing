@@ -10,6 +10,15 @@ module Lita
       }
 
       route(
+        /cheese/i,
+        :cheese,
+        :command => false, # doesn't need to be directed directly to @ngbot
+        :help    => {
+          "cheese" => "Did someone say cheese?"
+        }
+      )
+
+      route(
         /^submit\s+(.+)/i,
         :submit,
         :command => true,
@@ -27,6 +36,10 @@ module Lita
         }
       )
 
+      def cheese(response)
+        response.reply("Did someone say cheese?")
+      end
+
       def debug(response)
         response.reply("Possible values: (ngbot submit [" + PRS.keys.join(", ") + "])")
       end
@@ -38,7 +51,7 @@ module Lita
           return
         end
 
-        if is_repeated(response.user, pr)
+        if is_repeated(response.user.id, pr)
           response.reply("You just asked that man...") 
           return
         end
@@ -53,16 +66,16 @@ module Lita
           status = "Error: PR not found"   
         end
 
-        cache_message(response.user, pr)
+        cache_message(response.user.id, pr)
         response.reply(status) 
       end
 
-      def cache_message(user, pr)
-        redis.set(user.id, pr)
+      def cache_message(id, pr)
+        redis.set(id, pr)
       end
 
-      def is_repeated(user, pr)
-        match = redis.get(user.id)
+      def is_repeated(id, pr)
+        match = redis.get(id)
         pr == match
       end
 

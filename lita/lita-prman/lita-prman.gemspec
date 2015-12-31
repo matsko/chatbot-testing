@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-prman"
   spec.version       = "0.1.0"
-  spec.authors       = ["Matias Niemelä"]
+  spec.authors       = ["Matias Niemela"]
   spec.email         = ["matias@yearofmoo.com"]
   spec.description   = "Add a description"
   spec.summary       = "Add a summary"
