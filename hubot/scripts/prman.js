@@ -1,3 +1,17 @@
+// Description:
+//   Submits code to the server.
+//
+// Dependencies:
+//
+// Configuration:
+//   None
+//
+// Commands:
+//   hubot debug - tells you what you can submit
+//   hubot submit NAME - submit a PR to the server
+//
+// Author:
+//   matsko
 module.exports = function(robot) {
   var PRS = {
     "latest": "Your latest PR is set and it's testing against travis",
