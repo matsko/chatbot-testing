@@ -1,1 +1,1 @@
-web: bin/hubot -a slack
+web: HUBOT_LOG_LEVEL=debug HUBOT_SLACK_TOKEN=xoxb-17577857106-r9ovCTFLmfOiOczd5yN47AGF bin/hubot -a slack
